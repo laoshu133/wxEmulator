@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+* admin@laoshu133.com
+* 2013.06.06
+*/
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td{ margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6{ font-weight:normal; font-size:100%;}
+body{ background:#F9F9F9; font: 14px/1.5 "\5FAE\8F6F\96C5\9ED1",Arial,HELVETICA;}
+img{ border:0;}
+ol, ul{ list-style:none;}
+:link, :visited, ins{ text-decoration:none;}
+table{ border-collapse:collapse; border-spacing:0;}
+sub, sup{ font-size:100%; vertical-align:baseline;}
+blockquote, q{ quotes:"\201C" "\201D" "\2018" "\2019";}
+blockquote:before, blockquote:after, q:before, q:after{ content:""; content:none;}
+input, button, textarea, select, optgroup, option{ font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit;}
+button, input, select, textarea{ font-family:inherit; font-size:100%; margin:0;}
+button::-moz-focus-inner, input::-moz-focus-inner{ border:0; padding:0;}
+textarea{ overflow:auto; resize:vertical; vertical-align:top;}
+
+i, em{font-style:normal}
+a{ color:#333; text-decoration:none; outline:none;}
+a:hover { color:#20a4f1; text-decoration:none}/*color:#f36105;*/
+/* HTML5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{ display:block;}
+audio, canvas, video{ display:inline-block;}
+
