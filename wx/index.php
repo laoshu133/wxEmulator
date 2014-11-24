@@ -6,6 +6,12 @@ require_once 'lib/WxEmulator.php';
 // exit;
 
 
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+    echo 'Not support get action!';
+    exit;
+}
+
+
 $mpUrl = $_POST['mpurl'];
 $mpToken = $_POST['mptoken'];
 

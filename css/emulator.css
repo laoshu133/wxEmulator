@@ -39,9 +39,13 @@ h1, h2{ font-size: 20px;}
 .chat.chat-reply{ margin-left: 0; margin-right: 40px; text-align: left}
 .chat.chat-reply .avatar{ float: left;}
 .chat.chat-reply .chat-inner{ background-color: #FFF; border-color: #DDD; color: #333; margin-right: 0; margin-left: 5px;}
-.chat.chat-tips{ font-size: 12px; text-align: center;}
-.chat.chat-tips .avatar{ display: none;}
-.chat.chat-tips .chat-inner{ background-color: #C9C9C9; border-width: 0; padding: 2px 15px; text-align: center;}
+.chat.chat-tips,
+.chat.chat-error{ font-size: 12px; text-align: center;}
+.chat.chat-tips .avatar,
+.chat.chat-error .avatar{ display: none;}
+.chat.chat-tips .chat-inner,
+.chat.chat-error .chat-inner{ background-color: #C9C9C9; border-width: 0; padding: 1px 12px; text-align: center;}
+.chat.chat-error .chat-inner{ background-color: #D00; border-color: #C00;}
 
 
 

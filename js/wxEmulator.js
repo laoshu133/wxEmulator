@@ -200,6 +200,12 @@ define(['jquery', 'template'], function($, template) {
 
             shell.append(html);
         },
+        addErrorTips: function(msg) {
+            return this.addMessage({
+                chatType: 'error',
+                content: msg
+            });
+        },
         postMessage: function() {
             var self = this;
             var mpUrl = $.trim($('#mpurl').val());
@@ -236,7 +242,7 @@ define(['jquery', 'template'], function($, template) {
             })
             .done(function(ret) {
                 if(ret.status !== 'success') {
-                    self.showError(ret.message || '处理失败！');
+                    self.addErrorTips(ret.message || '处理失败！');
                     return;
                 }
 
@@ -244,14 +250,14 @@ define(['jquery', 'template'], function($, template) {
 
                 var xmlData = self.parseXMLData('reply', ret.result);
                 if(!xmlData) {
-                    self.showError('接收内容 XML 解析失败！');
+                    self.addErrorTips('接收内容 XML 解析失败！');
                     return;
                 }
 
                 self.addMessage(xmlData);
             })
             .fail(function() {
-                self.showError('接口无响应或超时！');
+                self.addErrorTips('接口无响应或超时！');
             });
         },
         checkSignature: function() {

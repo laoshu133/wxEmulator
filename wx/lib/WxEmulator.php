@@ -26,7 +26,7 @@ class WxEmulator extends HttpClient {
     }
 
     public function handlePost() {
-        // $_POST['mpxml'] = 'xxx';
+        // $_POST['mpxml'] = "<xml><ToUserName><![CDATA[gh_204936aea56d]]></ToUserName><FromUserName><![CDATA[ojpX_jig-gyi3_Q9fHXQ4rdHniQs]]></FromUserName><CreateTime></CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[XXXXX]]></Content><MsgId>1234567890abcdef</MsgId></xml>";
         // $ret = $this->post($this->apiUrl, $_POST['mpxml']);
         // echo $ret['result'];
         // exit;
