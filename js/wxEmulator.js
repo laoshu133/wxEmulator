@@ -4,6 +4,19 @@
  */
 
 define(['jquery', 'template'], function($, template) {
+    var utils = {
+        queryString: function(name, search) {
+            search = search || location.search;
+
+            var re = new RegExp('(?:^|\\?|&)' + name + '=([^&]+)');
+            if(re.test(search)) {
+                return decodeURIComponent(RegExp.$1);
+            }
+
+            return '';
+        }
+    };
+
     var wxEmulator = {
         init: function() {
             this.chatShell = $('#J_ChatShell');
@@ -14,6 +27,15 @@ define(['jquery', 'template'], function($, template) {
 
             this.toggleType(this.type);
             this.initEvent();
+
+            var url = utils.queryString('url');
+            if(url) {
+                $('#mpurl').val(url);
+            }
+            var token = utils.queryString('token');
+            if(token) {
+                $('#mptoken').val(token);
+            }
         },
         initEvent: function() {
             var self = this;
@@ -44,6 +66,22 @@ define(['jquery', 'template'], function($, template) {
             var chatShell = this.chatShell;
             chatShell.parent().delegate('.clear', 'click', function() {
                 chatShell.html('');
+            });
+            $(document).on('keyup', function(e) {
+                if(!e.altKey ||
+                    /(?:input|textarea)/i.test(e.target.nodeName)
+                ) {
+                    return;
+                }
+
+                var keyCode = e.keyCode;
+                // console.log(keyCode);
+                if(keyCode === 88) {
+                    chatShell.html('');
+                }
+                else if(keyCode == 83) {
+                    self.form.trigger('submit');
+                }
             });
         },
         type: 'text',
