@@ -13,7 +13,7 @@
 ## 使用方法
 
 需要 PHP 环境支持，直接访问 index.html
-在线体验：<a href="http://bbs.07340.com/wxEmulator">http://bbs.07340.com/wxEmulator</a>
+在线体验：<a href="http://bbs.07340.com/wxEmulator" target="_blank">http://bbs.07340.com/wxEmulator</a>
 
 
 ## 快捷键
