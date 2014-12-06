@@ -46,6 +46,16 @@ h1, h2{ font-size: 20px;}
 .chat.chat-tips .chat-inner,
 .chat.chat-error .chat-inner{ background-color: #C9C9C9; border-width: 0; padding: 1px 12px; text-align: center;}
 .chat.chat-error .chat-inner{ background-color: #D00; border-color: #C00;}
+.chat-news{ background: #FFF; border: 1px solid #BBB; border-radius: 5px; margin-left: 40px;}
+.chat-news ul{ display: table; width: 100%;}
+.chat-news li{ display: table-row;}
+.chat-news li a{ display: table-cell;  border-top: 1px solid #BBB; line-height: 1.5; padding: 9px 48px 9px 8px; height: 3em; overflow: hidden; position: relative; word-break: break-all; word-wrap: normal; vertical-align: middle;}
+.chat-news li:first-child a{ border-top: 0; border-top-left-radius: 5px; border-top-right-radius: 5px; padding-right: 8px;}
+.chat-news li:last-child a{ border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+.chat-news li a:hover{ background: #F9F9F9; color: #111;}
+.chat-news .pic{ background-position: 50% 50%; background-size: cover; margin-top: -17px; height: 34px; width: 34px; position: absolute; right: 8px; top: 50%;}
+.chat-news li:first-child .pic{ display: block; margin: 0; height: 140px; width: 100%; position: static;}
+.chat-news li:first-child .tit{ display: block; padding-top: 5px;}
 
 
 

@@ -203,12 +203,31 @@ define(['jquery', 'template'], function($, template) {
             ret = {
                 chatType: chatType
             };
-            doc.find('xml').children().each(function() {
-                var k = this.nodeName;
-                k = k.slice(0, 1).toLowerCase() + k.slice(1);
 
-                ret[k] = $(this).text();
-            });
+            var rArrs = /^articles$/;
+            function parse(node, data) {
+                var inx = undefined;
+                if('length' in data) {
+                    inx = 0;
+                }
+                node.children().each(function() {
+                    var name = this.nodeName;
+                    name = name.slice(0, 1).toLowerCase() + name.slice(1);
+
+                    var node = $(this);
+                    var k = isFinite(inx) ? inx ++ : name;
+
+                    if(!node.children().length) {
+                        data[k] = node.text();
+                    }
+                    else {
+                        data[k] = rArrs.test(name) ? [] : {};
+                        parse(node, data[k], 0);
+                    }
+                });
+            }
+
+            parse(doc.find('xml'), ret);
 
             var type = ret.type = ret.msgType;
             var handler = this.messageTypeParses[type];
@@ -227,10 +246,18 @@ define(['jquery', 'template'], function($, template) {
             var shell = this.chatShell;
             var msgTmpl = [
                 '<div class="chat chat-{{chatType}}">',
-                '{{if chatType === "post" || chatType === "reply"}}',
+                '{{if (chatType === "post" || chatType === "reply") && (type !== "news")}}',
                 '<span class="avatar"><img src="images/{{chatType === "post" ? "user.gif" : "weixin.jpg"}}" height="34" width="34" alt=""></span>',
                 '{{/if}}',
-                '<div class="chat-inner">{{content}}</div></div>'
+                '{{if type === "news"}}',
+                    '<div class="chat-news"><ul>',
+                        '{{each articles as item inx}}',
+                            '<li><a href="{{item.url}}" class="{{inx === 0 ? "first" : ""}}" target="_blank"><i class="pic" style="background-image:url({{item.picUrl}})"></i><span class="tit">{{item.title}}</span></a></li>',
+                        '{{/each}}',
+                    '</ul></div>',
+                '{{else}}',
+                    '<div class="chat-inner">{{content}}</div></div>',
+                '{{/if}}',
             ].join('');
 
             var render = template.compile(msgTmpl);
