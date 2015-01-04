@@ -51,7 +51,7 @@ class WxEmulator extends HttpClient {
         $nonce = "".rand(10000, 99999);
         $tmpArr = array($this->mpToken, $timestamp, $nonce);
 
-        sort($tmpArr);
+        sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
         $signature = sha1( $tmpStr );
 
